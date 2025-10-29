@@ -21,8 +21,15 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Build web release
-        run: flutter build web --release
+      - name: Ensure web tooling and build release
+        run: |
+          # Make sure web is enabled and Flutter SDK is up-to-date in the runner
+          flutter channel stable
+          flutter upgrade --force
+          flutter config --enable-web
+          flutter pub get
+          # build the web release (NO space between -- and release)
+          flutter build web --release
 
       - name: Set up Node
         uses: actions/setup-node@v4
