@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "771913570777",
+    "project_id": "doughminant-8644e",
+    "storage_bucket": "doughminant-8644e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:771913570777:android:0cc2775f4cdc78cbdb61c8",
+        "android_client_info": {
+          "package_name": "com.example.doughminant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "771913570777-oq8d0pkuphmuvtjhvcl0fv5rp56s65cl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.doughminant",
+            "certificate_hash": "f52a148ed39a2652f425e849c2d0c5a9482302a0"
+          }
+        },
+        {
+          "client_id": "771913570777-dmsfdd9mps6qgqucgoraqf5ve8pvn5j5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoKG-PsRq_IeTS0Y0nRK-mzOLVc-aS_5E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "771913570777-dmsfdd9mps6qgqucgoraqf5ve8pvn5j5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

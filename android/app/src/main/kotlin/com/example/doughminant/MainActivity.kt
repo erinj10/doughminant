@@ -1,0 +1,5 @@
+package com.example.doughminant
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity : FlutterActivity()
