@@ -66,13 +66,16 @@ class _AdminOrdersPageState extends State<AdminOrdersPage> {
         actions: [
           _adminNotificationBell(),
           const SizedBox(width: 8),
-          _viewSwitch(theme),
+          // use a compact view switch on narrow screens to save horizontal space
+          if (screenWidth < 520) _compactViewSwitch() else _viewSwitch(theme),
           const SizedBox(width: 8),
           LayoutBuilder(builder: (context, constraints) {
             // keep the search field constrained so AppBar actions don't overflow on narrow widths
-            final maxAllowed = (screenWidth - 200).clamp(120.0, 320.0);
+            // reserve slightly more space for other actions on narrow screens
+            final reserved = screenWidth < 520 ? 220.0 : 200.0;
+            final maxAllowed = (screenWidth - reserved).clamp(80.0, 320.0);
             return ConstrainedBox(
-              constraints: BoxConstraints(maxWidth: maxAllowed, minWidth: 120),
+              constraints: BoxConstraints(maxWidth: maxAllowed, minWidth: 80),
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 12),
                 child: TextField(
@@ -113,6 +116,25 @@ class _AdminOrdersPageState extends State<AdminOrdersPage> {
         _segBtn('Board'),
         _segBtn('Table'),
       ]),
+    );
+  }
+
+  Widget _compactViewSwitch() {
+    return PopupMenuButton<String>(
+      padding: EdgeInsets.zero,
+      onSelected: (v) => setState(() => _view = v),
+      itemBuilder: (ctx) => [
+        const PopupMenuItem(value: 'Board', child: Text('Board')),
+        const PopupMenuItem(value: 'Table', child: Text('Table')),
+      ],
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+        decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.surfaceVariant.withOpacity(.5),
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Row(children: [const Icon(Icons.view_column, size: 18), const SizedBox(width: 6), Text(_view)]),
+      ),
     );
   }
 
