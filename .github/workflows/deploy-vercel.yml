@@ -14,9 +14,8 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          # Use a specific/latest version string instead of the ambiguous 'stable' channel
-          # to avoid resolution failures in the action environment.
-          flutter-version: 'latest'
+          # Pin to the project's Flutter SDK version to avoid resolution errors in CI.
+          flutter-version: '3.35.7'
 
       - name: Install dependencies
         run: flutter pub get
